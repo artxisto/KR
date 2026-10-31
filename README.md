@@ -1,9 +1,10 @@
-# KR Multimarcas - Landing page
+# KR Multimarcas — Landing page
 
-Prototipo de landing page da KR Multimarcas (Caceres-MT).
+Protótipo de landing page da KR Multimarcas (Cáceres-MT).
 
-Para ver: abra o index.html no navegador ou ative o GitHub Pages (Settings > Pages > branch main, pasta raiz).
+- `index.html` — página única (HTML + CSS + JS inline)
+- `assets/` — fotos (recortes provisórios do Instagram; trocar pelas originais em alta resolução)
 
-Fotos em assets/ sao recortes provisorios do Instagram: trocar pelas originais mantendo os mesmos nomes.
+Para ver: abra o `index.html` no navegador ou ative o GitHub Pages (Settings → Pages → branch `main`, pasta `/`).
 
-Pendencias: confirmar enderecos das unidades Juba Center e Pontes e Lacerda.
+Pendências: confirmar endereços das unidades Juba Center e Pontes e Lacerda.

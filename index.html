@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KR Multimarcas</title>
+<meta name="description" content="KR Multimarcas — moda multimarca em Cáceres-MT. Levi's, Colcci, Lança Perfume, Aramis, Luiza Barcelos e FARM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0d; --ink-2:#1a1a1a; --paper:#f6f2ec; --paper-2:#ece5da;
+  --sand:#c4ad8b; --sand-dk:#9c8462; --stone:#7c7770; --line:rgba(13,13,13,.14);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--stone)}
+.serif{font-family:var(--serif);font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.8rem;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;border:1px solid currentColor;transition:.25s}
+.btn-solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-solid:hover{background:var(--sand-dk);border-color:var(--sand-dk)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.on-dark .btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.on-dark .btn-solid:hover{background:var(--sand);border-color:var(--sand)}
+.on-dark .btn-ghost{color:var(--paper)}
+.on-dark .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+
+/* KR mark (recriado em CSS) */
+.kr{position:relative;display:inline-grid;place-items:center;font-weight:800;letter-spacing:-.06em;line-height:1}
+.kr::before,.kr::after{content:"";position:absolute;border:2px solid currentColor;width:42%;height:42%}
+.kr::before{top:0;left:0;border-right:0;border-bottom:0}
+.kr::after{bottom:0;right:0;border-left:0;border-top:0}
+.kr span{padding:.32em .42em .28em .36em}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:.3s;color:var(--paper)}
+nav.solid{background:rgba(13,13,13,.92);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+nav .kr{font-size:1.35rem}
+nav ul{display:flex;gap:2.2rem;list-style:none;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+nav ul a{opacity:.8}nav ul a:hover{opacity:1}
+nav .cta{font-size:.7rem;padding:.7rem 1.1rem}
+
+/* HERO */
+.hero{min-height:100svh;background:var(--ink);color:var(--paper);display:grid;grid-template-columns:1.1fr .9fr;position:relative;overflow:hidden}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:120px 6vw 80px max(16px,calc((100vw - 1200px)/2))}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,6.2vw,5.6rem);line-height:.98;margin:1.4rem 0 1.6rem}
+.hero h1 em{color:var(--sand);font-style:italic}
+.hero p{max-width:30rem;color:rgba(246,242,236,.72);font-weight:300;font-size:1.02rem}
+.hero .actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.4rem}
+.hero .eyebrow{color:var(--sand)}
+.hero-img{position:relative}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,transparent 35%)}
+.hero-meta{position:absolute;bottom:28px;left:max(16px,calc((100vw - 1200px)/2));display:flex;gap:2.4rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,242,236,.55);z-index:2}
+.hero-meta b{color:var(--paper);font-weight:600;font-size:1rem;letter-spacing:.05em;display:block}
+
+/* MARCAS */
+.brands{background:var(--ink-2);color:var(--paper);border-top:1px solid rgba(255,255,255,.08);overflow:hidden}
+.marquee{display:flex;gap:4rem;padding:1.6rem 0;width:max-content;animation:mq 28s linear infinite}
+.marquee span{font-family:var(--serif);font-size:1.9rem;font-style:italic;white-space:nowrap;opacity:.85}
+.marquee i{color:var(--sand);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(72px,10vw,130px) 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.2rem;flex-wrap:wrap}
+.head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.04;margin-top:.8rem;max-width:18ch}
+.head h2 em{font-style:italic;color:var(--sand-dk)}
+.head p{max-width:26rem;color:var(--stone)}
+
+/* SOBRE */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.about-img{position:relative}
+.about-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-img .tag{position:absolute;right:-18px;bottom:28px;background:var(--paper);padding:1.1rem 1.4rem;border:1px solid var(--line)}
+.about-img .tag b{font-family:var(--serif);font-size:2.2rem;font-weight:500;display:block;line-height:1}
+.about-img .tag small{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.about h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.05;margin:.9rem 0 1.4rem}
+.about h2 em{font-style:italic;color:var(--sand-dk)}
+.about p{color:#3d3a36;margin-bottom:1rem;max-width:36rem}
+.founders{display:flex;gap:2.4rem;margin-top:2rem;padding-top:1.6rem;border-top:1px solid var(--line);flex-wrap:wrap}
+.founders div{font-size:.8rem;color:var(--stone)}
+.founders b{display:block;font-family:var(--serif);font-size:1.35rem;font-weight:500;color:var(--ink)}
+
+/* GRID MARCAS */
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.bcard{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:2.4rem 2rem;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s;background:var(--paper)}
+.bcard:hover{background:var(--ink);color:var(--paper)}
+.bcard:hover small{color:var(--sand)}
+.bcard h3{font-family:var(--serif);font-weight:500;font-size:2rem;line-height:1}
+.bcard small{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)}
+.bcard p{font-size:.88rem;opacity:.75;margin-top:.6rem}
+
+/* LOOKBOOK */
+.look{background:var(--paper-2)}
+.lgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.lgrid figure{position:relative;overflow:hidden;background:#ddd}
+.lgrid figure:first-child{grid-row:span 2}
+.lgrid img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.lgrid figure:hover img{transform:scale(1.04)}
+.lgrid figcaption{position:absolute;left:14px;bottom:12px;color:#fff;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.lgrid .ig{background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:2rem;gap:1rem}
+.lgrid .ig b{font-family:var(--serif);font-size:1.7rem;font-weight:400;line-height:1.1}
+.lgrid .ig b em{color:var(--sand)}
+
+/* SERVIÇOS */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.svc div{padding:2rem 1.6rem 0 0}
+.svc .n{font-family:var(--serif);font-style:italic;color:var(--sand-dk);font-size:1.4rem}
+.svc h4{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin:.6rem 0 .5rem}
+.svc p{font-size:.9rem;color:var(--stone)}
+
+/* LOJAS */
+.stores{background:var(--ink);color:var(--paper)}
+.stores .head p{color:rgba(246,242,236,.6)}
+.stores .head h2 em{color:var(--sand)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.store{border:1px solid rgba(255,255,255,.14);padding:2.2rem 1.8rem;display:flex;flex-direction:column;gap:.9rem}
+.store.main{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.store small{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sand)}
+.store.main small{color:var(--sand-dk)}
+.store h3{font-family:var(--serif);font-weight:500;font-size:1.9rem;line-height:1.05}
+.store p{font-size:.9rem;opacity:.75}
+.store a.link{margin-top:auto;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;border-bottom:1px solid currentColor;align-self:flex-start;padding-bottom:3px}
+.store .note{font-size:.72rem;font-style:italic;opacity:.5}
+
+/* DEPOIMENTOS */
+.rev{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,90px);align-items:start}
+.score b{font-family:var(--serif);font-size:clamp(5rem,10vw,8rem);font-weight:400;line-height:.9;display:block}
+.stars{color:var(--sand-dk);letter-spacing:.2em;font-size:1.1rem;margin:.6rem 0}
+.score p{color:var(--stone);font-size:.9rem}
+.quotes{display:grid;gap:1.6rem}
+blockquote{border-left:2px solid var(--sand);padding:.4rem 0 .4rem 1.6rem}
+blockquote q{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.25;quotes:"“" "”"}
+blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+
+/* CTA FINAL */
+.final{background:var(--sand);text-align:center}
+.final h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1;margin:1rem auto 1.4rem;max-width:16ch}
+.final h2 em{font-style:italic}
+.final p{max-width:34rem;margin:0 auto 2.2rem;color:#3a3127}
+.final .eyebrow{color:#5c4c36}
+
+footer{background:var(--ink);color:rgba(246,242,236,.6);padding:56px 0 34px;font-size:.85rem}
+footer .row{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2rem}
+footer .kr{color:var(--paper);font-size:2rem;margin-bottom:1rem}
+footer h5{color:var(--paper);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:1rem}
+footer a:hover{color:var(--sand)}
+footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:3rem;padding-top:1.4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.72rem;letter-spacing:.08em}
+
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:.25s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  nav ul{display:none}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto 52vh}
+  .hero-txt{padding:120px 16px 40px}
+  .hero-img{order:2}
+  .hero-img::after{background:linear-gradient(180deg,var(--ink) 0%,transparent 40%)}
+  .hero-meta{position:static;padding:0 16px 40px;order:3;grid-row:3}
+  .about,.rev{grid-template-columns:1fr}
+  .about-img .tag{right:12px}
+  .bgrid{grid-template-columns:repeat(2,1fr)}
+  .sgrid{grid-template-columns:1fr}
+  .svc{grid-template-columns:repeat(2,1fr)}
+  .lgrid{grid-template-columns:1fr 1fr}
+  .lgrid figure:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+  footer .row{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .bgrid,.svc{grid-template-columns:1fr}
+  .bcard{min-height:160px}
+  footer .row{grid-template-columns:1fr}
+  .hero-meta{gap:1.4rem}
+}
+@media (prefers-reduced-motion:reduce){.marquee{animation:none}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a href="#top" class="kr" aria-label="KR Multimarcas"><span>KR</span></a>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#marcas">Marcas</a></li>
+      <li><a href="#looks">Looks</a></li>
+      <li><a href="#lojas">Lojas</a></li>
+    </ul>
+    <a class="btn btn-ghost cta" href="https://wa.me/5565998007428" target="_blank" rel="noopener" style="color:inherit">Comprar</a>
+  </div>
+</nav>
+
+<header class="hero on-dark" id="top">
+  <div class="hero-txt">
+    <span class="eyebrow">Multimarcas · Cáceres-MT</span>
+    <h1>As marcas que você ama, <em>num só endereço.</em></h1>
+    <p>Levi's, Colcci, FARM, Lança Perfume, Aramis, Luiza Barcelos e muito mais — com curadoria de quem entende de moda e atendimento que faz você voltar.</p>
+    <div class="actions">
+      <a class="btn btn-solid" href="https://wa.me/5565998007428?text=Ol%C3%A1%2C%20KR!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20novidades." target="_blank" rel="noopener">Comprar pelo WhatsApp →</a>
+      <a class="btn btn-ghost" href="#lojas">Visitar a loja</a>
+    </div>
+  </div>
+  <div class="hero-img"><img src="assets/loja.jpg" alt="Fachada da loja KR com logotipo iluminado"></div>
+  <div class="hero-meta">
+    <div><b>22 mil+</b>seguidores</div>
+    <div><b>5,0 ★</b>no Google</div>
+    <div><b>2 cidades</b>Cáceres · P. Lacerda</div>
+  </div>
+</header>
+
+<div class="brands" aria-label="Marcas">
+  <div class="marquee">
+    <span>Levi's</span><i>✦</i><span>Colcci</span><i>✦</i><span>FARM</span><i>✦</i><span>Lança Perfume</span><i>✦</i><span>Aramis</span><i>✦</i><span>Luiza Barcelos</span><i>✦</i><span>Aramis Kids</span><i>✦</i>
+    <span>Levi's</span><i>✦</i><span>Colcci</span><i>✦</i><span>FARM</span><i>✦</i><span>Lança Perfume</span><i>✦</i><span>Aramis</span><i>✦</i><span>Luiza Barcelos</span><i>✦</i><span>Aramis Kids</span><i>✦</i>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="wrap about">
+    <div class="about-img reveal">
+      <img src="assets/sobre.jpg" alt="Cliente KR com look em off-white">
+      <div class="tag"><b>+2.500</b><small>looks publicados</small></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Sobre a KR</span>
+      <h2>Moda de marca, <em>perto de você.</em></h2>
+      <p>A KR Multimarcas nasceu para trazer ao interior de Mato Grosso as marcas mais desejadas do Brasil e do mundo — sem precisar viajar até a capital.</p>
+      <p>Masculino, feminino e infantil, do jeans clássico ao look de festa. Cada peça é escolhida a dedo, e o atendimento é pensado para você sair da loja do jeito que imaginou.</p>
+      <div class="founders">
+        <div><b>Keiciane Campos</b>Fundadora</div>
+        <div><b>Renan Campos</b>Fundador</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="marcas" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Nossas marcas</span><h2>Curadoria que <em>assina embaixo.</em></h2></div>
+      <p>Trabalhamos com marcas reconhecidas pela qualidade, caimento e estilo. Pergunte pelas novidades da semana.</p>
+    </div>
+    <div class="bgrid reveal">
+      <div class="bcard"><small>Jeans & casual</small><div><h3>Levi's</h3><p>O jeans original, em todos os cortes.</p></div></div>
+      <div class="bcard"><small>Fashion jeanswear</small><div><h3>Colcci</h3><p>Moda urbana com atitude.</p></div></div>
+      <div class="bcard"><small>Feminino</small><div><h3>FARM</h3><p>Estampas, cor e a brasilidade carioca.</p></div></div>
+      <div class="bcard"><small>Feminino</small><div><h3>Lança Perfume</h3><p>Sensualidade e tendência em cada coleção.</p></div></div>
+      <div class="bcard"><small>Masculino & Kids</small><div><h3>Aramis</h3><p>Alfaiataria moderna para ele — e para os pequenos.</p></div></div>
+      <div class="bcard"><small>Calçados & acessórios</small><div><h3>Luiza Barcelos</h3><p>Sapatos e bolsas para completar o look.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="look" id="looks">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Lookbook</span><h2>Direto da <em>nossa arara.</em></h2></div>
+      <p>Novidades chegam toda semana. Viu algo que gostou? Manda print no WhatsApp que a gente separa pra você.</p>
+    </div>
+    <div class="lgrid reveal">
+      <figure><img src="assets/look-animal-print.jpg" alt="Vestido longo com estampa animal print"><figcaption>Vestido animal print</figcaption></figure>
+      <figure style="aspect-ratio:4/5"><img src="assets/look-oliva.jpg" alt="Conjunto de alfaiataria verde oliva"><figcaption>Conjunto oliva</figcaption></figure>
+      <div class="ig">
+        <span class="eyebrow" style="color:var(--sand)">@krmultimarcasoficial_</span>
+        <b>Acompanhe os <em>lançamentos</em> no Instagram.</b>
+        <a class="btn btn-ghost" style="color:var(--paper);align-self:flex-start" href="https://instagram.com/krmultimarcasoficial_" target="_blank" rel="noopener">Seguir</a>
+      </div>
+      <figure style="grid-column:span 2;aspect-ratio:16/7"><img src="assets/loja.jpg" alt="Interior da loja KR" style="object-position:center 30%"><figcaption>Nossa loja</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Como comprar</span><h2>Do seu jeito, <em>sem complicação.</em></h2></div>
+    </div>
+    <div class="svc reveal">
+      <div><span class="n">01</span><h4>Na loja</h4><p>Venha provar com calma e receber atendimento personalizado.</p></div>
+      <div><span class="n">02</span><h4>Pelo WhatsApp</h4><p>Peça fotos, tamanhos e sugestões de look sem sair de casa.</p></div>
+      <div><span class="n">03</span><h4>Retirada na porta</h4><p>Comprou on-line? Passe na loja e retire sem descer do carro.</p></div>
+      <div><span class="n">04</span><h4>Entrega</h4><p>Levamos sua compra até você, com todo o cuidado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stores" id="lojas">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow" style="color:var(--sand)">Onde estamos</span><h2>Venha nos <em>visitar.</em></h2></div>
+      <p>Atendimento de segunda a sábado. Fale com a gente antes para confirmar horários e disponibilidade.</p>
+    </div>
+    <div class="sgrid reveal">
+      <div class="store main">
+        <small>Cáceres · Centro</small>
+        <h3>KR Multimarcas</h3>
+        <p>R. Cel. José Dúlce, 93 – Centro<br>Cáceres – MT, 78210-056</p>
+        <p>Aberto até 18h</p>
+        <a class="link" href="https://www.google.com/maps/search/?api=1&query=R.+Cel.+Jos%C3%A9+D%C3%BAlce%2C+93+-+Centro%2C+C%C3%A1ceres+-+MT" target="_blank" rel="noopener">Como chegar →</a>
+      </div>
+      <div class="store">
+        <small>Cáceres · Juba Center</small>
+        <h3>KR Juba Center</h3>
+        <p>Nossa segunda casa em Cáceres, com espaço dedicado ao infantil Aramis Kids.</p>
+        <p class="note">Endereço completo a confirmar com o cliente</p>
+        <a class="link" href="https://instagram.com/jubacenter" target="_blank" rel="noopener">@jubacenter →</a>
+      </div>
+      <div class="store">
+        <small>Pontes e Lacerda</small>
+        <h3>KR P. Lacerda</h3>
+        <p>As mesmas marcas e o mesmo atendimento, agora mais perto de você.</p>
+        <p class="note">Endereço completo a confirmar com o cliente</p>
+        <a class="link" href="https://wa.me/5565998007428" target="_blank" rel="noopener">Falar com a loja →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap rev">
+    <div class="score reveal">
+      <span class="eyebrow">Avaliações no Google</span>
+      <b>5,0</b>
+      <div class="stars">★★★★★</div>
+      <p>Nota máxima de quem já comprou com a gente.</p>
+    </div>
+    <div class="quotes reveal">
+      <blockquote><q>Super indico a loja! Marcas excelentes, ótimo atendimento. A melhor da cidade!</q><cite>Maisa S. · Google</cite></blockquote>
+      <blockquote><q>Loja com marcas de roupas excelentes! Super indico.</q><cite>Raynara R. · Google</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <span class="eyebrow">Compre aqui</span>
+    <h2>Seu próximo look <em>está a uma mensagem.</em></h2>
+    <p>Chame no WhatsApp, conte o que procura e receba sugestões das nossas consultoras.</p>
+    <a class="btn btn-solid" href="https://wa.me/5565998007428?text=Ol%C3%A1%2C%20KR!%20Vim%20pelo%20site." target="_blank" rel="noopener">Chamar no WhatsApp →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><div class="kr"><span>KR</span></div><p>Moda multimarca em Cáceres e Pontes e Lacerda – MT.</p></div>
+      <div><h5>Contato</h5><p><a href="https://wa.me/5565998007428" target="_blank" rel="noopener">(65) 99800-7428</a></p><p><a href="https://instagram.com/krmultimarcasoficial_" target="_blank" rel="noopener">@krmultimarcasoficial_</a></p></div>
+      <div><h5>Loja Centro</h5><p>R. Cel. José Dúlce, 93<br>Centro · Cáceres – MT</p></div>
+      <div><h5>Marcas</h5><p>Levi's · Colcci · FARM<br>Lança Perfume · Aramis<br>Luiza Barcelos</p></div>
+    </div>
+    <div class="bottom"><span>© 2026 KR Multimarcas</span><span>Protótipo de landing page</span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5565998007428" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.79 14.06c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.27c.24-.27.53-.34.71-.34l.51.01c.16.01.38-.06.6.46.23.54.77 1.88.84 2.01.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.92 1.21 2.19 1.35.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.6-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.33z"/></svg>
+</a>
+
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('solid',scrollY>40);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
